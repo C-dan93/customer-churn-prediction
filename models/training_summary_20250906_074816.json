@@ -1,0 +1,186 @@
+{
+  "timestamp": "20250906_074816",
+  "best_model": "LogisticRegression",
+  "data_splits": {
+    "train_samples": 739,
+    "train_features": 10,
+    "feature_names": [
+      "SeniorCitizen",
+      "tenure",
+      "PhoneService",
+      "TotalCharges",
+      "InternetService_Fiber optic",
+      "OnlineSecurity_Yes",
+      "OnlineBackup_Yes",
+      "StreamingMovies_No internet service",
+      "Contract_Two year",
+      "PaymentMethod_Electronic check"
+    ]
+  },
+  "feature_selection": {
+    "strategy": "rfe_logistic",
+    "n_features": 10,
+    "features_selected": 10,
+    "selected_features": [
+      "SeniorCitizen",
+      "tenure",
+      "PhoneService",
+      "TotalCharges",
+      "InternetService_Fiber optic",
+      "OnlineSecurity_Yes",
+      "OnlineBackup_Yes",
+      "StreamingMovies_No internet service",
+      "Contract_Two year",
+      "PaymentMethod_Electronic check"
+    ],
+    "feature_ranking": [
+      11,
+      1,
+      20,
+      7,
+      1,
+      1,
+      10,
+      3,
+      1,
+      4,
+      16,
+      1,
+      6,
+      18,
+      1,
+      17,
+      1,
+      15,
+      9,
+      12,
+      2,
+      8,
+      19,
+      1,
+      21,
+      14,
+      1,
+      13,
+      1,
+      5
+    ]
+  },
+  "cross_validation_results": {
+    "LogisticRegression": {
+      "mean_scores": {
+        "accuracy": 0.7564625850340135,
+        "precision": 0.530761295331722,
+        "recall": 0.7907692307692308,
+        "f1": 0.6338593852492075,
+        "roc_auc": 0.8510566141300085
+      },
+      "std_scores": {
+        "accuracy": 0.038731768199900034,
+        "precision": 0.048184016188673996,
+        "recall": 0.05243824833298139,
+        "f1": 0.04404561685172233,
+        "roc_auc": 0.03143765485632706
+      }
+    },
+    "RandomForest": {
+      "mean_scores": {
+        "accuracy": 0.7821750321750323,
+        "precision": 0.6001025906289064,
+        "recall": 0.5355128205128206,
+        "f1": 0.5649866025152066,
+        "roc_auc": 0.808973956019063
+      },
+      "std_scores": {
+        "accuracy": 0.01688622200608241,
+        "precision": 0.03454416734330661,
+        "recall": 0.053741656845257134,
+        "f1": 0.04123631671008054,
+        "roc_auc": 0.016650259922568314
+      }
+    },
+    "XGBoost": {
+      "mean_scores": {
+        "accuracy": 0.7591836734693878,
+        "precision": 0.5458824377955729,
+        "recall": 0.5867948717948719,
+        "f1": 0.5647315739011637,
+        "roc_auc": 0.7920233420023175
+      },
+      "std_scores": {
+        "accuracy": 0.032396884398673324,
+        "precision": 0.0582889414084317,
+        "recall": 0.043309051002657924,
+        "f1": 0.047924485382268824,
+        "roc_auc": 0.041582585200241426
+      }
+    }
+  },
+  "validation_results": {
+    "LogisticRegression": {
+      "accuracy": 0.660377358490566,
+      "precision": 0.4126984126984127,
+      "recall": 0.6046511627906976,
+      "f1": 0.49056603773584906,
+      "roc_auc": 0.7630312750601445
+    },
+    "RandomForest": {
+      "accuracy": 0.6729559748427673,
+      "precision": 0.3953488372093023,
+      "recall": 0.3953488372093023,
+      "f1": 0.3953488372093023,
+      "roc_auc": 0.6592822774659182
+    },
+    "XGBoost": {
+      "accuracy": 0.6352201257861635,
+      "precision": 0.3728813559322034,
+      "recall": 0.5116279069767442,
+      "f1": 0.43137254901960786,
+      "roc_auc": 0.6959703287890939
+    }
+  },
+  "final_test_metrics": {
+    "accuracy": 0.7735849056603774,
+    "precision": 0.55,
+    "recall": 0.7857142857142857,
+    "f1": 0.6470588235294118,
+    "roc_auc": 0.8586691086691086
+  },
+  "model_selection_justification": "Selected LogisticRegression based on validation F1-score",
+  "config_used": {
+    "artifacts": {
+      "output_dir": "models",
+      "save_visualizations": true
+    },
+    "logging": {
+      "level": "INFO"
+    },
+    "training": {
+      "cv_folds": 5,
+      "feature_selection": {
+        "correlation_threshold": 0.8,
+        "enabled": true,
+        "importance_threshold": 0.01,
+        "k_features": 10,
+        "max_features": 15,
+        "n_features": 10,
+        "permutation_threshold": 0.01,
+        "strategy": "rfe_lr"
+      },
+      "models": [
+        "LogisticRegression",
+        "RandomForest",
+        "XGBoost"
+      ],
+      "random_state": 42,
+      "scoring_metrics": [
+        "accuracy",
+        "precision",
+        "recall",
+        "f1",
+        "roc_auc"
+      ],
+      "tuning_folds": 5
+    }
+  }
+}
